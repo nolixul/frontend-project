@@ -4,7 +4,7 @@ import PostReview from './PostReview';
 
 const Home = () => {
   return (
-    <div>
+    <div className='Home'>
       <NavBar />
       <ul className='reviewsList'>
         <PostReview />

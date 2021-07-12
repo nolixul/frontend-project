@@ -2,9 +2,13 @@ import React from 'react';
 
 const NavBar = () => {
   return (
-    <nav className='navBar'>
-      <button>Category</button>
-      <button>Sort By</button>
+    <nav className='NavBar'>
+      <select>
+        <option>select category</option>
+      </select>
+      <select>
+        <option>order by</option>
+      </select>
     </nav>
   );
 };

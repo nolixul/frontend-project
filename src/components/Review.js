@@ -3,7 +3,7 @@ import PostComment from './PostComment';
 
 const Review = () => {
   return (
-    <div>
+    <div className='Review'>
       <section className='fullReview'>
         <p>Full review Here</p>
       </section>

@@ -1,7 +1,11 @@
 import React from 'react';
 
 const PostReview = () => {
-  return <div></div>;
+  return (
+    <form className='postReview'>
+      <p>post review form here</p>
+    </form>
+  );
 };
 
 export default PostReview;

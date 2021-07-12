@@ -1,7 +1,17 @@
 import React from 'react';
+import NavBar from './NavBar';
+import PostReview from './PostReview';
 
 const Home = () => {
-  return <div></div>;
+  return (
+    <div>
+      <NavBar />
+      <ul className='reviewsList'>
+        <PostReview />
+        <li>Review list here</li>
+      </ul>
+    </div>
+  );
 };
 
 export default Home;

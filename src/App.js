@@ -1,6 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
+
 import Header from './components/Header';
 import Review from './components/Review';
 import Home from './components/Home';

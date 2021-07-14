@@ -4,16 +4,22 @@ import { getSelectedReview } from '../utils/api';
 const useSelectedReview = (review_id) => {
   const [selectedReview, setSelectedReview] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
-    getSelectedReview(review_id).then((reviewFromApi) => {
-      setSelectedReview(reviewFromApi);
-      setIsLoading(false);
-    });
+    setHasError(false);
+    getSelectedReview(review_id)
+      .then((reviewFromApi) => {
+        setSelectedReview(reviewFromApi);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setHasError(true);
+      });
   }, [review_id]);
 
-  return { selectedReview, setSelectedReview, isLoading, setIsLoading };
+  return { selectedReview, isLoading, hasError };
 };
 
 export default useSelectedReview;

@@ -5,13 +5,19 @@ const useReviews = (setReviews) => {
   const [selectedCategory, setSelectedCategory] = useState();
   const [sortBy, setSortBy] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
-    getReviews(selectedCategory, sortBy).then((reviewsFromApi) => {
-      setReviews(reviewsFromApi);
-      setIsLoading(false);
-    });
+    setHasError(false);
+    getReviews(selectedCategory, sortBy)
+      .then((reviewsFromApi) => {
+        setReviews(reviewsFromApi);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setHasError(true);
+      });
   }, [selectedCategory, sortBy]);
   return {
     selectedCategory,
@@ -19,7 +25,7 @@ const useReviews = (setReviews) => {
     sortBy,
     setSortBy,
     isLoading,
-    setIsLoading
+    hasError
   };
 };
 

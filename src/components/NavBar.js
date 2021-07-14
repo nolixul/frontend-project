@@ -5,17 +5,12 @@ import { useState } from 'react';
 // COME BACK AND RE-FACTOR SO CLICKING ON A CATEGORY CHANGES THE URL - PARAMETRIC ENDPOINTS WITH ROUTING, SEE NOTES. REFACTOR TO USE CUSTOM HOOKS
 
 const NavBar = ({ setReviews }) => {
-  const { categories, setCategories } = useCategories();
-  const {
-    selectedCategory,
-    setSelectedCategory,
-    sortBy,
-    setSortBy,
-    loading,
-    isLoading
-  } = useReviews(setReviews);
+  const { categories } = useCategories();
+  const { setSelectedCategory, setSortBy, isLoading, hasError } =
+    useReviews(setReviews);
 
   if (isLoading) return <p>Loading...</p>;
+  if (hasError) return <p>Oops! Something went wrong...</p>;
   return (
     <nav className='NavBar'>
       <label forhtml='categories-select'>Select Category</label>

@@ -3,13 +3,17 @@ import { useParams } from 'react-router';
 import useComments from '../hooks/useComments';
 import useSelectedReview from '../hooks/useSelectedReview';
 
+
 import PostComment from './PostComment';
 
 const Review = () => {
   const { review_id } = useParams();
-  const { selectedReview, setSelectedReview } = useSelectedReview(review_id);
+  const { selectedReview, setSelectedReview, isLoading, setIsLoading } =
+    useSelectedReview(review_id);
   const { comments, setComments } = useComments(review_id);
+  
 
+  if (isLoading) return <p>Loading...</p>;
   return (
     <div className='Review'>
       <section className='fullReview'>
@@ -38,7 +42,8 @@ const Review = () => {
                 <p>{comment.author}</p>
                 <p>{comment.created_at}</p>
                 <p>Votes: {comment.votes}</p>
-                <button>⬆️</button> <button>⬇️</button>
+                <button onClick={}>⬆️</button>{' '}
+                <button onClick={}>⬇️</button>
               </li>
             );
           })}

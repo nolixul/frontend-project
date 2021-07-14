@@ -6,11 +6,16 @@ import { useState } from 'react';
 
 const NavBar = ({ setReviews }) => {
   const { categories, setCategories } = useCategories();
-  const { selectedCategory, setSelectedCategory, sortBy, setSortBy } =
-    useReviews(setReviews);
+  const {
+    selectedCategory,
+    setSelectedCategory,
+    sortBy,
+    setSortBy,
+    loading,
+    isLoading
+  } = useReviews(setReviews);
 
-  console.log(sortBy, 'SORT BY');
-
+  if (isLoading) return <p>Loading...</p>;
   return (
     <nav className='NavBar'>
       <label forhtml='categories-select'>Select Category</label>

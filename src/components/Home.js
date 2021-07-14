@@ -1,7 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from './NavBar';
-import PostReview from './PostReview';
 
 const Home = ({ review_id, setReview_id }) => {
   const [reviews, setReviews] = useState([]);
@@ -10,7 +9,6 @@ const Home = ({ review_id, setReview_id }) => {
     <div className='Home'>
       <NavBar setReviews={setReviews} />
       <ul className='reviewsList'>
-        <PostReview setReviews={setReviews} />
         {reviews.map((review) => {
           return (
             <Link to={`/review/${review.review_id}`}>

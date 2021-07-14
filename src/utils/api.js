@@ -13,6 +13,10 @@ export const getReviews = async (category) => {
   const { data } = await gamesApi.get('/reviews', {
     params: { category: category }
   });
-  // put in the request params object above, look at API to do it.
   return data.reviews;
+};
+
+export const getSelectedReview = async (review_id) => {
+  const { data } = await gamesApi.get(`/reviews/${review_id}`);
+  return data.review;
 };

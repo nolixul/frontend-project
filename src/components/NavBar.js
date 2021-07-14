@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { getCategories } from '../utils/api';
+import { getCategories, getReviews } from '../utils/api';
 
-const NavBar = () => {
+// COME BACK AND RE-FACTOR SO CLICKING ON A CATEGORY CHANGES THE URL - PARAMETRIC ENDPOINTS WITH ROUTING, SEE NOTES.
+
+const NavBar = ({ setReviews }) => {
   const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   useEffect(() => {
     getCategories().then((categoriesFromApi) => {
@@ -11,13 +13,26 @@ const NavBar = () => {
     });
   }, []);
 
+  useEffect(() => {
+    getReviews(selectedCategory).then((reviewsFromApi) => {
+      setReviews(reviewsFromApi);
+    });
+  }, [selectedCategory]);
+
   return (
     <nav className='NavBar'>
-      <select>
-        <option>select category</option>
+      <label forhtml='categories-select'>Select Category</label>
+      <select
+        name='categoriesDropDown'
+        id='categories-select'
+        onChange={(event) => {
+          setSelectedCategory(event.target.value);
+        }}
+      >
+        <option value=''>select category</option>
         {categories.map((category) => {
           const categoryName = category.slug;
-          return <option>{categoryName}</option>;
+          return <option value={categoryName}>{categoryName}</option>;
         })}
       </select>
       <select>

@@ -1,28 +1,32 @@
 import { React, useEffect, useState } from 'react';
-import { useParams } from 'react-router';
-import { getReviews } from '../utils/api';
+import { Link } from 'react-router-dom';
 import NavBar from './NavBar';
 import PostReview from './PostReview';
 
-const Home = () => {
-  const { category } = useParams();
+const Home = ({ review_id, setReview_id }) => {
   const [reviews, setReviews] = useState([]);
-
-  // useEffect to fetch all reviews OR reviews by category - see notes
-  // NOT CONVINCED THIS WILL WORK - HOW IS IT GETTING CATEGORY FOR PARAMS
-  useEffect(() => {
-    getReviews(category).then((reviewsFromApi) => {
-      setReviews(reviewsFromApi);
-    });
-  }, [category]);
 
   return (
     <div className='Home'>
-      <NavBar />
+      <NavBar setReviews={setReviews} />
       <ul className='reviewsList'>
         <PostReview setReviews={setReviews} />
         {reviews.map((review) => {
-          return <li>{review.title}</li>;
+          return (
+            <Link to={`/review/${review.review_id}`}>
+              <li key={review.review_id}>
+                <img
+                  src={review.review_img_url}
+                  alt='Picture of game'
+                  style={{ height: '100px' }}
+                ></img>
+                <h1>{review.title}</h1>
+                <p>{review.designer}</p>
+                <p>{review.created_at}</p>
+                <p>votes: {review.votes}</p>
+              </li>
+            </Link>
+          );
         })}
       </ul>
     </div>

@@ -2,14 +2,16 @@ import { useState, useEffect } from 'react';
 import { getReviews } from '../utils/api';
 
 const useReviews = (setReviews) => {
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState();
+  const [sortBy, setSortBy] = useState();
 
   useEffect(() => {
-    getReviews(selectedCategory).then((reviewsFromApi) => {
+    console.log(sortBy, 'SORT BY IN USE EFFECT');
+    getReviews(selectedCategory, sortBy).then((reviewsFromApi) => {
       setReviews(reviewsFromApi);
     });
-  }, [selectedCategory]);
-  return { selectedCategory, setSelectedCategory };
+  }, [selectedCategory, sortBy]);
+  return { selectedCategory, setSelectedCategory, sortBy, setSortBy };
 };
 
 export default useReviews;

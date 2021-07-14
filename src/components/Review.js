@@ -25,13 +25,22 @@ const Review = () => {
         <p>{selectedReview.review_body}</p>
         <p>{selectedReview.designer}</p>
         <p>{selectedReview.category}</p>
-        <p>{selectedReview.votes}</p>
+        <p>Votes: {selectedReview.votes}</p>
+        <button>⬆️</button> <button>⬇️</button>
       </section>
       <section>
         <ul className='commentsList'>
           <PostComment />
           {comments.map((comment) => {
-            return <li></li>;
+            return (
+              <li>
+                <p>{comment.body}</p>
+                <p>{comment.author}</p>
+                <p>{comment.created_at}</p>
+                <p>Votes: {comment.votes}</p>
+                <button>⬆️</button> <button>⬇️</button>
+              </li>
+            );
           })}
         </ul>
       </section>

@@ -23,7 +23,7 @@ const Home = ({ review_id, setReview_id }) => {
                 <h1>{review.title}</h1>
                 <p>{review.designer}</p>
                 <p>{review.created_at}</p>
-                <p>votes: {review.votes}</p>
+                <p>Votes: {review.votes}</p>
               </li>
             </Link>
           );

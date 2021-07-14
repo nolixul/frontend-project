@@ -17,7 +17,7 @@ const Home = ({ review_id, setReview_id }) => {
               <li key={review.review_id}>
                 <img
                   src={review.review_img_url}
-                  alt='Picture of game'
+                  alt='game being reviewed'
                   style={{ height: '100px' }}
                 ></img>
                 <h1>{review.title}</h1>

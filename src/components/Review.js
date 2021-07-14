@@ -16,7 +16,19 @@ const Review = () => {
   return (
     <div className='Review'>
       <section className='fullReview'>
-        <p>{selectedReview.title}</p>
+        {' '}
+        <p>{selectedReview.owner}</p>
+        <p>{selectedReview.created_at}</p>
+        <img
+          src={selectedReview.review_img_url}
+          alt='game being reviewed'
+          style={{ height: '100px' }}
+        ></img>
+        <h1>{selectedReview.title}</h1>
+        <p>{selectedReview.review_body}</p>
+        <p>{selectedReview.designer}</p>
+        <p>{selectedReview.category}</p>
+        <p>{selectedReview.votes}</p>
       </section>
       <section>
         <ul className='commentsList'>

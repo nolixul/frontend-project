@@ -20,3 +20,8 @@ export const getSelectedReview = async (review_id) => {
   const { data } = await gamesApi.get(`/reviews/${review_id}`);
   return data.review;
 };
+
+export const getComments = async (review_id) => {
+  const { data } = await gamesApi.get(`/reviews/${review_id}/comments`);
+  return data.comments;
+};

@@ -1,23 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { getCategories, getReviews } from '../utils/api';
-
-// COME BACK AND RE-FACTOR SO CLICKING ON A CATEGORY CHANGES THE URL - PARAMETRIC ENDPOINTS WITH ROUTING, SEE NOTES.
+import useReviews from '../hooks/useReviews';
+// COME BACK AND RE-FACTOR SO CLICKING ON A CATEGORY CHANGES THE URL - PARAMETRIC ENDPOINTS WITH ROUTING, SEE NOTES. REFACTOR TO USE CUSTOM HOOKS
 
 const NavBar = ({ setReviews }) => {
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const { selectedCategory, setSelectedCategory } = useReviews(setReviews);
 
   useEffect(() => {
     getCategories().then((categoriesFromApi) => {
       setCategories(categoriesFromApi);
     });
   }, []);
-
-  useEffect(() => {
-    getReviews(selectedCategory).then((reviewsFromApi) => {
-      setReviews(reviewsFromApi);
-    });
-  }, [selectedCategory]);
 
   return (
     <nav className='NavBar'>

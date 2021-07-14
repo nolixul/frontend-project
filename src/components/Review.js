@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { getSelectedReview } from '../utils/api';
+import useComments from '../hooks/useComments';
+import useSelectedReview from '../hooks/useSelectedReview';
+
 import PostComment from './PostComment';
 
 const Review = () => {
-  const [selectedReview, setSelectedReview] = useState({});
   const { review_id } = useParams();
-
-  useEffect(() => {
-    getSelectedReview(review_id).then((reviewFromApi) => {
-      setSelectedReview(reviewFromApi);
-    });
-  }, [review_id]);
+  const { selectedReview, setSelectedReview } = useSelectedReview(review_id);
+  const { comments, setComments } = useComments(review_id);
 
   return (
     <div className='Review'>
@@ -33,7 +30,9 @@ const Review = () => {
       <section>
         <ul className='commentsList'>
           <PostComment />
-          <li>Comments here</li>
+          {comments.map((comment) => {
+            return <li></li>;
+          })}
         </ul>
       </section>
     </div>

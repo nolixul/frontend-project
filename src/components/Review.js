@@ -8,7 +8,7 @@ import PostComment from './PostComment';
 const Review = () => {
   const { review_id } = useParams();
   const { selectedReview, isLoading, hasError } = useSelectedReview(review_id);
-  const { comments, setComments } = useComments(review_id);
+  const { comments } = useComments(review_id);
   // increase and decrease review and comment votes
 
   if (isLoading) return <p>Loading...</p>;
@@ -33,7 +33,7 @@ const Review = () => {
       </section>
       <section>
         <ul className='commentsList'>
-          <PostComment />
+          <PostComment review_id={review_id} />
           {comments.map((comment) => {
             return (
               <li>

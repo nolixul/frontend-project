@@ -12,7 +12,6 @@ const PostComment = () => {
   const [newCommentBody, setNewCommentBody] = useState('');
 
   const handleSubmit = (event) => {
-    console.log(newComment, 'newComment in handle submit');
     event.preventDefault();
     const newComment = { username: value.username, body: newCommentBody };
     postComment(review_id, newComment).then((postedComment) => {
@@ -21,6 +20,7 @@ const PostComment = () => {
         return newComments;
       });
     });
+    setNewCommentBody('');
   };
 
   return (

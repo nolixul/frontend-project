@@ -8,7 +8,7 @@ const useComments = (review_id) => {
     getComments(review_id).then((commentsFromApi) => {
       setComments(commentsFromApi);
     });
-  }, [review_id]);
+  }, [review_id, comments]);
   return { comments, setComments };
 };
 

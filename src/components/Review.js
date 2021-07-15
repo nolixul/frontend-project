@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import useComments from '../hooks/useComments';
 import useSelectedReview from '../hooks/useSelectedReview';
@@ -33,7 +32,7 @@ const Review = () => {
       </section>
       <section>
         <ul className='commentsList'>
-          <PostComment review_id={review_id} />
+          <PostComment />
           {comments.map((comment) => {
             return (
               <li>

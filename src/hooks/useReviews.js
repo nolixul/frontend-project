@@ -18,7 +18,7 @@ const useReviews = (setReviews) => {
       .catch((error) => {
         setHasError(true);
       });
-  }, [selectedCategory, sortBy]);
+  }, [selectedCategory, sortBy, setReviews]);
   return {
     selectedCategory,
     setSelectedCategory,

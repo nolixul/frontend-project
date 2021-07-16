@@ -5,25 +5,24 @@ import useSelectedReview from '../hooks/useSelectedReview';
 import { patchReviewVotes } from '../utils/api';
 
 import PostComment from './PostComment';
-import UseVotes from '../hooks/useVotes';
 
 const Review = () => {
-  // const [localReviewVotes, setLocalReviewVotes]
+  const [reviewVotes, setReviewVotes] = useState(0);
   const { review_id } = useParams();
 
   const { selectedReview, isLoading, hasError } = useSelectedReview(review_id);
-  const { isLoadingVotes, hasVotesErr, setReviewVotes, reviewVotes } =
-    UseVotes(review_id);
 
   const { comments } = useComments(review_id);
 
   const updateVotes = () => {
-    setReviewVotes(selectedReview.votes + 1);
-    UseVotes(review_id);
+    setReviewVotes((currVotes) => currVotes + 1);
+    patchReviewVotes(review_id);
   };
 
-  if (isLoading || isLoadingVotes) return <p>Loading...</p>;
-  if (hasError || hasVotesErr) return <p>Oops! Something went wrong...</p>;
+  console.log(typeof selectedReview.votes, 'typeof selectedReview.votes');
+
+  if (isLoading) return <p>Loading...</p>;
+  if (hasError) return <p>Oops! Something went wrong...</p>;
   return (
     <div className='Review'>
       <section className='fullReview'>
@@ -39,7 +38,7 @@ const Review = () => {
         <p>{selectedReview.review_body}</p>
         <p>{selectedReview.designer}</p>
         <p>{selectedReview.category}</p>
-        <p>Votes: {reviewVotes}</p>
+        <p>Votes: {selectedReview.votes + reviewVotes}</p>
         <button onClick={updateVotes}>⬆️</button>
       </section>
       <section>

@@ -31,6 +31,7 @@ export const postComment = async (review_id, newComment) => {
     `/reviews/${review_id}/comments`,
     newComment
   );
+
   return data.comment;
 };
 

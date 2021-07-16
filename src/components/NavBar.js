@@ -1,6 +1,5 @@
 import useReviews from '../hooks/useReviews';
 import useCategories from '../hooks/useCategories';
-import { Link } from 'react-router-dom';
 
 // COME BACK AND RE-FACTOR SO CLICKING ON A CATEGORY CHANGES THE URL - PARAMETRIC ENDPOINTS WITH ROUTING, SEE NOTES. REFACTOR TO USE CUSTOM HOOKS
 
@@ -9,11 +8,11 @@ const NavBar = ({ setReviews }) => {
   const { setSelectedCategory, setSortBy, isLoading, hasError } =
     useReviews(setReviews);
 
-  if (isLoading) return <p>Loading...</p>;
   if (hasError) return <p>Oops! Something went wrong...</p>;
+  if (isLoading) return <p>Loading...</p>;
+
   return (
     <nav className='NavBar'>
-      <label forhtml='categories-select'>Select Category</label>
       <select
         name='categoriesDropDown'
         id='categories-select'
@@ -27,7 +26,7 @@ const NavBar = ({ setReviews }) => {
           return <option value={categoryName}>{categoryName}</option>;
         })}
       </select>
-      <label forhtml='sort-by-select'> Sort By</label>
+
       <select
         name='sort-by-dropdown'
         id='sort-by-select'

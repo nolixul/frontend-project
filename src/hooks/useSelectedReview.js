@@ -5,6 +5,7 @@ const useSelectedReview = (review_id) => {
   const [selectedReview, setSelectedReview] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     setIsLoading(true);
@@ -19,7 +20,7 @@ const useSelectedReview = (review_id) => {
       });
   }, [review_id]);
 
-  return { selectedReview, isLoading, hasError };
+  return { selectedReview, isLoading, hasError, error };
 };
 
 export default useSelectedReview;

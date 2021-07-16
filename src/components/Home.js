@@ -13,7 +13,7 @@ const Home = ({ review_id, setReview_id }) => {
         {reviews.map((review) => {
           return (
             <Box>
-              <Link to={`/review/${review.review_id}`}>
+              <Link to={`/review/${review.review_id}`} className='text-link'>
                 <li key={review.review_id}>
                   <img
                     src={review.review_img_url}

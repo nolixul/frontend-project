@@ -5,14 +5,21 @@
   grid-template-rows: min-content auto;
   grid-template-areas: 'header' 'content';
   min-height: 100vh;
+  color: #12130f;
+  background-color: #666a86;
 }
 
 .NavBar {
-  background-color: rgba(152, 251, 152, 0.678);
+  background-color: #d1dede;
+  margin-left: 6em;
+  margin-right: 6em;
+  padding: 0.5em;
 }
 
 .Header {
-  background-color: rgba(211, 170, 66, 0.726);
+  background-color: #df9a57;
+  margin: 1em;
+  border-radius: 2%;
 }
 
 .Home {
@@ -20,7 +27,30 @@
 }
 
 .Review {
-  background-color: rgba(218, 112, 214, 0.527);
+  background-color: #666a86;
+}
+
+.Box {
+  background-color: #d1dede;
+  border-radius: 2%;
+  margin-left: 6em;
+  margin-right: 6em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 0.5em;
+}
+
+.text-link {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+#categories-select {
+  margin-right: 2em;
+}
+
+#sort-by-select {
+  margin-left: 2em;
 }
 
 ul {

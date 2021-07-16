@@ -5,7 +5,7 @@ import UserContext from './contexts/User';
 import Header from './components/Header';
 import Review from './components/Review';
 import Home from './components/Home';
-import { useContext, useEffect, useState } from 'react';
+import { useState } from 'react';
 
 function App() {
   const [user, setUser] = useState({

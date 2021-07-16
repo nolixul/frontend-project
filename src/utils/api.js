@@ -33,3 +33,12 @@ export const postComment = async (review_id, newComment) => {
   );
   return data.comment;
 };
+
+export const patchReviewVotes = async (review_id) => {
+  const incrementByOne = { inc_votes: 1 };
+  const { data } = await gamesApi.patch(
+    `/reviews/${review_id}`,
+    incrementByOne
+  );
+  return data.review.votes;
+};

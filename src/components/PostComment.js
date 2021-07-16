@@ -10,21 +10,35 @@ const PostComment = () => {
   const value = useContext(UserContext);
   const { setComments } = useComments(review_id);
   const [newCommentBody, setNewCommentBody] = useState('');
+  const [hasError, setHasError] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newComment = { username: value.username, body: newCommentBody };
-    postComment(review_id, newComment).then((postedComment) => {
-      setComments((currComments) => {
-        const newComments = [postedComment, ...currComments];
-        return newComments;
-      });
-    });
+    if (newCommentBody.length > 2) {
+      setHasError(false);
+      const newComment = { username: value.username, body: newCommentBody };
+      postComment(review_id, newComment)
+        .then((postedComment) => {
+          setComments((currComments) => {
+            const newComments = [postedComment, ...currComments];
+            return newComments;
+          });
+        })
+        .catch((err) => {
+          setHasError(true);
+        });
+    } else {
+      setHasError(true);
+    }
     setNewCommentBody('');
   };
 
+  if (hasError) {
+    return <p>You need to write a comment to be able to post it!</p>;
+  }
+
   return (
-    <div className='postComment'>
+    <div className='PostComment'>
       <p>post comment here</p>
       <Expandable>
         <form onSubmit={handleSubmit}>

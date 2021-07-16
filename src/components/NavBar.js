@@ -1,5 +1,6 @@
 import useReviews from '../hooks/useReviews';
 import useCategories from '../hooks/useCategories';
+import { Link } from 'react-router-dom';
 
 // COME BACK AND RE-FACTOR SO CLICKING ON A CATEGORY CHANGES THE URL - PARAMETRIC ENDPOINTS WITH ROUTING, SEE NOTES. REFACTOR TO USE CUSTOM HOOKS
 

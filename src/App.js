@@ -1,11 +1,11 @@
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 
-import { UserContext } from './contexts/User';
+import UserContext from './contexts/User';
 import Header from './components/Header';
 import Review from './components/Review';
 import Home from './components/Home';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 function App() {
   const [user, setUser] = useState({

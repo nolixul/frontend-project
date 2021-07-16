@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import Expandable from './Expandable';
 import useComments from '../hooks/useComments';
-import { UserContext } from '../contexts/User';
+import UserContext from '../contexts/User';
 import { postComment } from '../utils/api';
 
 const PostComment = () => {

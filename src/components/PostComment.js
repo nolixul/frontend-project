@@ -40,20 +40,27 @@ const PostComment = () => {
   return (
     <div className='PostComment'>
       <p>post comment here</p>
+
       <Expandable>
         <form onSubmit={handleSubmit}>
-          <label htmlFor='body'>
-            Comment
-            <textarea
-              value={newCommentBody}
-              onChange={(event) => {
-                setNewCommentBody(event.target.value);
-              }}
-            ></textarea>
-          </label>
-          <button type='submit' value='Submit'>
-            submit
-          </button>
+          <div className='container'>
+            <div className='commentTitle'>
+              <label htmlFor='body'>Comment </label>
+            </div>
+            <div className='commentBody'>
+              <textarea
+                value={newCommentBody}
+                onChange={(event) => {
+                  setNewCommentBody(event.target.value);
+                }}
+              ></textarea>
+            </div>
+            <div className='submitBtn'>
+              <button type='submit' value='Submit'>
+                submit
+              </button>
+            </div>
+          </div>
         </form>
       </Expandable>
     </div>

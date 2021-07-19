@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
+
 .App {
   text-align: center;
   display: grid;
@@ -14,12 +16,14 @@
   margin-left: 6em;
   margin-right: 6em;
   padding: 0.5em;
+  border-radius: 10px;
 }
 
 .Header {
   background-color: #df9a57;
   margin: 1em;
-  border-radius: 2%;
+  border-radius: 10px;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .Home {
@@ -32,7 +36,17 @@
 
 .Box {
   background-color: #d1dede;
-  border-radius: 2%;
+  border-radius: 10px;
+  margin-left: 6em;
+  margin-right: 6em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 0.5em;
+}
+
+.fullReview {
+  background-color: #d1dede;
+  border-radius: 10px;
   margin-left: 6em;
   margin-right: 6em;
   margin-top: 1em;
@@ -55,4 +69,47 @@
 
 ul {
   list-style: none;
+  padding-left: 0%;
+}
+
+#upVote {
+  cursor: pointer;
+}
+
+.commentArea {
+  background-color: #e4efef;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.loggedInArea {
+  background-color: #f7b372;
+  width: 20%;
+  margin: auto;
+  margin-bottom: 0.75em;
+  padding: 0.25em;
+  border-radius: 10px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 0.6fr 1.7fr 0.7fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: 'commentTitle commentBody submitBtn';
+  padding: 1em;
+}
+.commentTitle {
+  grid-area: commentTitle;
+}
+.commentBody {
+  grid-area: commentBody;
+}
+.submitBtn {
+  grid-area: submitBtn;
 }

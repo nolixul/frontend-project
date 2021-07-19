@@ -10,7 +10,9 @@ const Header = () => {
       <Link to='/' className='text-link'>
         <h1>Golden Games</h1>
       </Link>
-      <p>Logged in as: {username}</p>
+      <p className='loggedInArea'>
+        Logged in as: <span className='username'>{username}</span>
+      </p>
     </div>
   );
 };

@@ -21,30 +21,35 @@ const Review = () => {
     patchReviewVotes(review_id);
   };
 
+  const timeFormat = (date) => {
+    return date.slice(0, 9);
+  };
+
   if (hasError) return <p>This review doesn't exist!</p>;
 
   if (isLoading) return <p>Loading...</p>;
 
   return (
     <div className='Review'>
-      <Box>
-        <section className='fullReview'>
-          {' '}
-          <p>{selectedReview.owner}</p>
-          <p>{selectedReview.created_at}</p>
-          <img
-            src={selectedReview.review_img_url}
-            alt='game being reviewed'
-            style={{ height: '100px' }}
-          ></img>
-          <h1>{selectedReview.title}</h1>
-          <p>{selectedReview.review_body}</p>
-          <p>{selectedReview.designer}</p>
-          <p>{selectedReview.category}</p>
-          <p>Votes: {selectedReview.votes + reviewVotes}</p>
-          <button onClick={updateVotes}>⬆️</button>
-        </section>
-      </Box>
+      <section className='fullReview'>
+        {' '}
+        <p className='username'>{selectedReview.owner}</p>
+        <p>{selectedReview.created_at}</p>
+        <img
+          src={selectedReview.review_img_url}
+          alt='game being reviewed'
+          style={{ height: '100px' }}
+        ></img>
+        <h1>{selectedReview.title}</h1>
+        <p>{selectedReview.review_body}</p>
+        <p>{selectedReview.designer}</p>
+        <p>{selectedReview.category}</p>
+        <p>Votes: {selectedReview.votes + reviewVotes}</p>
+        <p id='upVote' onClick={updateVotes}>
+          ⬆️
+        </p>
+      </section>
+
       <section>
         <ul className='commentsList'>
           <Box>
@@ -54,10 +59,13 @@ const Review = () => {
             return (
               <Box>
                 <li>
-                  <p>{comment.body}</p>
-                  <p>{comment.author}</p>
-                  <p>{comment.created_at}</p>
+                  {' '}
+                  <div className='commentArea'>
+                    <p className='username'>{comment.author}</p>
+                    <p>{comment.body}</p>
+                  </div>
                   <p>Votes: {comment.votes}</p>
+                  <p>{timeFormat(comment.created_at)}</p>
                 </li>
               </Box>
             );

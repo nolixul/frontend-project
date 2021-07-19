@@ -44,15 +44,14 @@ const PostComment = () => {
       <Expandable>
         <form onSubmit={handleSubmit}>
           <div className='container'>
-            <div className='commentTitle'>
-              <label htmlFor='body'>Comment </label>
-            </div>
             <div className='commentBody'>
               <textarea
                 value={newCommentBody}
                 onChange={(event) => {
                   setNewCommentBody(event.target.value);
                 }}
+                id='textArea'
+                placeholder='comment'
               ></textarea>
             </div>
             <div className='submitBtn'>

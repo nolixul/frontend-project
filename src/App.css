@@ -97,12 +97,13 @@ ul {
 
 .container {
   display: grid;
-  grid-template-columns: 0.6fr 1.7fr 0.7fr;
+  grid-template-columns: 0.3fr 1.7fr 0.3fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas: 'commentTitle commentBody submitBtn';
-  padding: 1em;
+  margin: 1em;
+  position: relative;
 }
 .commentTitle {
   grid-area: commentTitle;
@@ -112,4 +113,11 @@ ul {
 }
 .submitBtn {
   grid-area: submitBtn;
+  position: absolute;
+  bottom: 0;
+}
+
+#textArea {
+  width: 300px;
+  height: 150px;
 }

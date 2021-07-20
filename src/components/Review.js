@@ -11,8 +11,7 @@ const Review = () => {
   const [reviewVotes, setReviewVotes] = useState(0);
   const { review_id } = useParams();
 
-  const { selectedReview, isLoading, hasError, error } =
-    useSelectedReview(review_id);
+  const { selectedReview, isLoading, hasError } = useSelectedReview(review_id);
 
   const { comments } = useComments(review_id);
 

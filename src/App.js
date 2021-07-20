@@ -8,7 +8,7 @@ import Home from './components/Home';
 import { useState } from 'react';
 
 function App() {
-  const [user, setUser] = useState({
+  const [user] = useState({
     username: 'jessjelly',
     name: 'Jess Jelly',
     avatar_url:

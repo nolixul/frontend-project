@@ -20,6 +20,11 @@ You can:
 
 ### Future Functionality
 
+Planned future functionality:
+
+- You have to be logged in to post a comment
+- You can upvote and downvote comments
+
 ## Set-up
 
 There are a few steps to setting up this project locally.

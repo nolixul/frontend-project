@@ -51,6 +51,16 @@ npm i
 
 ---
 
+### Scripts
+
+To launch a local version of this project, you need to run `npm start` in your terminal.
+
+```
+npm start
+```
+
+---
+
 ### React Version Requirements
 
 Minimum version of React required: `17.0.2`
